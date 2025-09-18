@@ -1,4 +1,13 @@
 
+
+dsregcmd.exe /debug /leave
+This removes the device's Azure AD registration and clears associated SCP entries.
+
+RegEdit 
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
+
+
 The official offboarding script for Microsoft Defender for Endpoint directly from Microsoft's documentation portal. 
 
 🔗 Microsoft Defender for Endpoint: Offboard devices
