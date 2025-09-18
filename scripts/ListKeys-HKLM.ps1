@@ -35,6 +35,13 @@ foreach ($key in $HKLMpolicyKeys) {
 }
 
 <# TRIAL RUNS 
+
+Value 
+Remove-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows Advanced Threat Protection" -Name "OnboardingInfo"
+
+Key + Value 
+Remove-Item -Path "HKLM:\Software\Policies\Microsoft\Windows Advanced Threat Protection" -Recurse
+
 foreach ($key in $policyKeys) {
     $rawPath = $key.PSPath
     $cleanPath = $rawPath -replace "Microsoft\.PowerShell\.Core\\Registry::HKEY_LOCAL_MACHINE\\Software\\Policies\\", ""
