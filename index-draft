@@ -67,5 +67,32 @@
     </table>
   </details>
 
+  <h2>📋 Common Registry Paths</h2>
+  <pre>
+HKLM\Software\Policies\Microsoft\Windows
+HKLM\Software\Policies\Microsoft\Windows Defender
+HKCU\Software\Policies\Microsoft\Office\16.0
+  </pre>
+
+  <h2>🔐 MDM Enrollment Indicators</h2>
+  <pre>
+HKLM\SOFTWARE\Microsoft\Enrollments
+HKLM\SOFTWARE\Microsoft\PolicyManager
+HKLM\Software\Policies\Microsoft\Windows Advanced Threat Protection
+  </pre>
+
+  <h2>🛡️ Defender ATP</h2>
+  <pre>
+Key: <span class="key">OnboardingInfo</span>
+Value: <span class="value">{"orgId":"...","geoLocationUrl":"...","version":"..."}</span>
+  </pre>
+
+  <h2>📦 Office Cloud Policy</h2>
+  <pre>
+HKCU\Software\Policies\Microsoft\{TenantGUID}_ADAL\Cloud\Office\16.0\common\loop
+Loop : 1
+LoopOutlook : 1
+  </pre>
+
 </body>
 </html>
