@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SCCM MDM Cheat Sheet</title>
+</head>
+<body>
+  <h1>🧠 SCCM / Intune MDM Essentials Cheat Sheet</h1>
+
+  <details open>
+    <summary><strong>🔐 Enrollment & Identity</strong></summary>
+    <ul>
+      <li><code>dsregcmd /status</code> — Check Azure AD join & MDM enrollment</li>
+      <li><code>Get-MsolDevice</code> — View devices in Azure AD (MSOnline module)</li>
+      <li><strong>Company Portal</strong> — App used for Intune enrollment</li>
+      <li><strong>Enrollment Status Page (ESP)</strong> — Shows progress during Intune setup</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary><strong>⚙️ Configuration Service Providers (CSPs)</strong></summary>
+    <ul>
+      <li><strong>CSP</strong> — Interface for configuring Windows via MDM</li>
+      <li><strong>Format</strong> — <code>./Device/Vendor/MSFT/...</code></li>
+      <li><strong>Access</strong> — Via SyncML (MDM), not directly browsable</li>
+      <li><strong>Reference</strong> — <a href="https://learn.microsoft.com/en-us/windows/client-management/mdm/configuration-service-provider-reference" target="_blank">Microsoft CSP Reference</a></li>
+    </ul>
+  </details>
+
+  <details>
+    <summary><strong>🛠️ Registry vs CSP</strong></summary>
+    <table border="1" cellpadding="5">
+      <tr><th>Method</th><th>Used By</th><th>Mechanism</th></tr>
+      <tr><td>Registry</td><td>Group Policy, PowerShell, SCCM</td><td>Writes to HKLM or HKCU</td></tr>
+      <tr><td>CSP</td><td>Intune, Autopilot, MDM tools</td><td>SyncML → API calls</td></tr>
+    </table>
+  </details>
+
+  <details>
+    <summary><strong>📁 Key Paths</strong></summary>
+    <ul>
+      <li><code>HKLM:\Software\Policies\...</code> — Computer-level GPO settings</li>
+      <li><code>HKCU:\Software\Policies\...</code> — User-level GPO settings</li>
+      <li><code>C:\Windows\System32\GroupPolicy</code> — Stores local GPO files</li>
+      <li><code>C:\Windows\System32\dsregcmd.exe</code> — Device registration tool</li>
+      <li><code>C:\Windows\Logs\DeviceManagement\OMADMLog.xml</code> — MDM activity log (if enrolled)</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary><strong>🧪 Useful PowerShell Commands</strong></summary>
+    <ul>
+      <li><code>Get-ItemProperty</code> — Read registry values</li>
+      <li><code>Set-ItemProperty</code> — Write registry values</li>
+      <li><code>Get-WmiObject -Namespace root\cimv2\mdm\dmmap</code> — Access CSP via WMI (MDM only)</li>
+      <li><code>Get-Process</code> — Monitor Company Portal or MDM agent</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary><strong>🧩 Common CSP Examples</strong></summary>
+    <table border="1" cellpadding="5">
+      <tr><th>Policy Goal</th><th>CSP Path</th><th>Value</th></tr>
+      <tr><td>Disable Store</td><td><code>./Vendor/MSFT/Policy/Config/ApplicationManagement/AllowStore</code></td><td>0</td></tr>
+      <tr><td>Block USB</td><td><code>./Device/Vendor/MSFT/Policy/Config/DeviceInstallation/PreventInstallationOfMatchingDeviceIDs</code></td><td>Device ID</td></tr>
+      <tr><td>Set Wallpaper</td><td><code>./Device/Vendor/MSFT/Personalization/DesktopImageUrl</code></td><td>URL</td></tr>
+    </table>
+  </details>
+
+</body>
+</html>
