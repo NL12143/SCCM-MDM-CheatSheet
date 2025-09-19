@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enterprise Data Protection Architecture</title>
+</head>
+<body>
+  <h1>Enterprise Data Protection Across BYOD, AVD, and DevOps</h1>
+
+  <details open>
+    <summary><strong>🎯 Starting Point</strong></summary>
+    <p>Protect corporate data even when users bring their own devices (BYOD). Balance security, usability, and autonomy.</p>
+  </details>
+
+  <details>
+    <summary><strong>🔐 Data Protection Strategies</strong></summary>
+    <ul>
+      <li><strong>Sensitivity Labels + Encryption</strong>: File-level protection, Conditional Access triggers, persistent control.</li>
+      <li><strong>MAM (App Protection Policies)</strong>: App-level encryption, copy/paste restrictions, wipe on sign-out.</li>
+      <li><strong>MDM (Device Enrollment)</strong>: Full device compliance, used for desktop sync and high-trust zones.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary><strong>🔒 Access Control</strong></summary>
+    <ul>
+      <li>Conditional Access enforces approved apps, device compliance, and label-based access.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary><strong>🖥️ Azure Virtual Desktop (AVD)</strong></summary>
+    <ul>
+      <li>Pooled host pools with FSLogix profiles.</li>
+      <li>Scaling via Azure Automation runbooks.</li>
+      <li>Requires orchestration, not truly automatic.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary><strong>⚙️ Automation & Governance</strong></summary>
+    <ul>
+      <li><strong>Azure Automation</strong>: Runbooks for autoscaling, session drain logic.</li>
+      <li><strong>Azure DevOps (ADO)</strong>: Script lifecycle (TST → PRD), image management, version control.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary><strong>🧠 Strategic Themes</strong></summary>
+    <ul>
+      <li>Control the data, not the device.</li>
+      <li>Use incentives and clarity to drive adoption.</li>
+      <li>Segment access by sensitivity, not just identity.</li>
+      <li>Automate with purpose, not just promise.</li>
+    </ul>
+  </details>
+
+</body>
+</html>
